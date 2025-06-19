@@ -228,10 +228,10 @@ routes.delete('/clients/:id', async (req, res) => {
     }
 });
 
-const supportController = require('./controllers/supportController');
+const supportController = require('./supportController');
 routes.post('/support', supportController.submitSupportRequest);
 
-const budgetController = require('../controllers/budgetController');
+const budgetController = require('./budgetController');
 routes.post('/budget', budgetController.createBudget);
 
 
