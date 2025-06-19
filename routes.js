@@ -1,6 +1,7 @@
 const routes = require('express').Router();
 const Post = require('./post');
 const Service = require('./service');
+const Client = require('./client');
 
 routes.get('/posts', async (req, res) => {
     try {
@@ -49,5 +50,29 @@ routes.post('/services', async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 });
+
+routes.get('/clients', async (req, res) => {
+    try  {
+        const clients = await Client.find();
+        res.json(clients);
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message });
+}});
+
+routes.post('/clients', async (req, res) => {
+    const client = new Client({
+        name: req.body.name,
+        description: req.body.description,
+        icon: req.body.icon
+    });
+
+    try {
+        const savedClient = await client.save();
+        res.status(201).json(savedClient);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+})
 
 module.exports = routes;
