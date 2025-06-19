@@ -1,7 +1,7 @@
 const routes = require('express').Router();
 const Post = require('./post');
 const Service = require('./service');
-const Client = require('./client');
+const Client = require('./clients');
 
 routes.get('/posts', async (req, res) => {
     try {
