@@ -1,6 +1,6 @@
 // backend/src/controllers/budgetController.js
-const BudgetRequest = require('../BudgetRequest');
-const { sendEmail } = require('../emailService'); // Importe o serviço de e-mail
+const BudgetRequest = require('./BudgetRequest');
+const { sendEmail } = require('./emailService'); // Importe o serviço de e-mail
 
 exports.submitBudgetRequest = async (req, res) => {
   try {
