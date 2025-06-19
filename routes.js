@@ -3,8 +3,6 @@ const Post = require('./post');
 const Service = require('./service');
 const Client = require('./clients');
 
-// Rotas para Posts
-
 
 routes.get('/posts', async (req, res) => {
     try {
@@ -229,5 +227,14 @@ routes.delete('/clients/:id', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+const supportController = require('./controllers/supportController');
+routes.post('/support', supportController.submitSupportRequest);
+
+const budgetController = require('../controllers/budgetController');
+routes.post('/budget', budgetController.createBudget);
+
+
+
 
 module.exports = routes;
