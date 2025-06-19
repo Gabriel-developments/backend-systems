@@ -228,7 +228,7 @@ routes.delete('/clients/:id', async (req, res) => {
     }
 });
 
-const supportController = require('./supportController');
+const supportController = require('./supportRequestController');
 routes.post('/support', supportController.submitSupportRequest);
 
 const budgetController = require('./budgetController');
