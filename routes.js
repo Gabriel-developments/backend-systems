@@ -232,7 +232,7 @@ const supportController = require('./supportRequestController');
 routes.post('/support', supportController.submitSupportRequest);
 
 const budgetController = require('./budgetController');
-routes.post('/budget', budgetController.createBudget);
+routes.post('/budget', budgetController.submitBudgetRequest);
 
 
 
