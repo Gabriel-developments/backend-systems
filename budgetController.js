@@ -19,7 +19,7 @@ exports.submitBudgetRequest = async (req, res) => {
     `;
 
     // Endereço de e-mail da WellSystems para receber as solicitações
-    const recipientEmail = 'contato@wellsystems.com.br'; 
+    const recipientEmail = 'gabrielllklll@gmail.com'; 
     const emailSubject = `Nova Solicitação de Orçamento: ${subject}`;
 
     await sendEmail(recipientEmail, emailSubject, htmlContent);
