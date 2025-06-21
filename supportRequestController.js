@@ -19,7 +19,7 @@ exports.submitSupportRequest = async (req, res) => {
     `;
 
     // Endereço de e-mail da WellSystems para receber as solicitações
-    const recipientEmail = 'gabrielllklll@gmail.com'; 
+    const recipientEmail = 'contato@wellsystems.com.br'; 
     const emailSubject = `Nova Solicitação de Suporte: ${subject}`;
 
     // Atualizado para usar o novo formato de parâmetros
