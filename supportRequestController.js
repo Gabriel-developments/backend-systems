@@ -1,6 +1,6 @@
 // backend/src/controllers/supportController.js
 const SupportRequest = require('./SupportRequest');
-const { sendEmail } = require('./emailService'); // Importe o serviço de e-mail
+const { sendEmail } = require('./emailService');
 
 exports.submitSupportRequest = async (req, res) => {
   try {
@@ -22,7 +22,12 @@ exports.submitSupportRequest = async (req, res) => {
     const recipientEmail = 'gabrielllklll@gmail.com'; 
     const emailSubject = `Nova Solicitação de Suporte: ${subject}`;
 
-    await sendEmail(recipientEmail, emailSubject, htmlContent);
+    // Atualizado para usar o novo formato de parâmetros
+    await sendEmail({
+      to: recipientEmail,
+      subject: emailSubject,
+      html: htmlContent
+    });
 
     res.status(201).json({ message: 'Solicitação de suporte enviada com sucesso!' });
   } catch (error) {

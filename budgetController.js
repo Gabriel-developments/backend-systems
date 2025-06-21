@@ -1,6 +1,6 @@
 // backend/src/controllers/budgetController.js
 const BudgetRequest = require('./BudgetRequest');
-const { sendEmail } = require('./emailService'); // Importe o serviço de e-mail
+const { sendEmail } = require('./emailService');
 
 exports.submitBudgetRequest = async (req, res) => {
   try {
@@ -22,7 +22,12 @@ exports.submitBudgetRequest = async (req, res) => {
     const recipientEmail = 'gabrielllklll@gmail.com'; 
     const emailSubject = `Nova Solicitação de Orçamento: ${subject}`;
 
-    await sendEmail(recipientEmail, emailSubject, htmlContent);
+    // Atualizado para usar o novo formato de parâmetros
+    await sendEmail({
+      to: recipientEmail,
+      subject: emailSubject,
+      html: htmlContent
+    });
 
     res.status(201).json({ message: 'Solicitação de orçamento enviada com sucesso!' });
   } catch (error) {
